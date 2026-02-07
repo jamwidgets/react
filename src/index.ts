@@ -1,9 +1,9 @@
 /**
- * @seriphxyz/react - React hooks for Seriph widgets
+ * @jamwidgets/react - React hooks for Jamwidgets
  *
  * @example Subscribe form
  * ```tsx
- * import { useSubscribe } from '@seriphxyz/react';
+ * import { useSubscribe } from '@jamwidgets/react';
  *
  * function Newsletter() {
  *   const { subscribe, status, error } = useSubscribe({
@@ -42,7 +42,7 @@ import {
   PollController,
   AnnouncementsController,
   resolveConfig,
-  type SeriphConfig,
+  type JamWidgetsConfig,
   type SubscribeState,
   type FormState,
   type ReactionsState,
@@ -57,11 +57,11 @@ import {
   type PollWithResults,
   type FeedbackType,
   type ControllerStatus,
-} from "@seriphxyz/core";
+} from "@jamwidgets/core";
 
 // Re-export types from core
 export type {
-  SeriphConfig,
+  JamWidgetsConfig,
   SubscribeState,
   FormState,
   ReactionsState,
@@ -76,11 +76,12 @@ export type {
   PollWithResults,
   FeedbackType,
   ReactionCounts,
-  SeriphPost,
+  JamwidgetsPost,
+  SeriphPost, // deprecated alias
   FetchPostsOptions,
   FetchPostOptions,
   ControllerStatus,
-} from "@seriphxyz/core";
+} from "@jamwidgets/core";
 
 // Re-export API functions and helpers from core
 export {
@@ -90,14 +91,14 @@ export {
   resolveConfig,
   DEFAULT_ENDPOINT,
   API_PATH,
-} from "@seriphxyz/core";
+} from "@jamwidgets/core";
 
 // =============================================================================
 // Config types - siteKey is optional when using meta tag fallback
 // =============================================================================
 
-type OptionalSiteKey<T extends SeriphConfig> = Omit<T, "siteKey"> & {
-  /** Site key - optional if <meta name="seriph-site-key"> is set */
+type OptionalSiteKey<T extends JamWidgetsConfig> = Omit<T, "siteKey"> & {
+  /** Site key - optional if <meta name="jamwidgets-site-key"> is set */
   siteKey?: string;
 };
 
@@ -105,7 +106,7 @@ type OptionalSiteKey<T extends SeriphConfig> = Omit<T, "siteKey"> & {
 // useSubscribe
 // ============================================================================
 
-export interface UseSubscribeOptions extends OptionalSiteKey<SeriphConfig> {}
+export interface UseSubscribeOptions extends OptionalSiteKey<JamWidgetsConfig> {}
 
 export interface UseSubscribeReturn {
   status: ControllerStatus;
@@ -159,7 +160,7 @@ export function useSubscribe(options: UseSubscribeOptions): UseSubscribeReturn {
 // useForm
 // ============================================================================
 
-export interface UseFormOptions extends OptionalSiteKey<SeriphConfig> {
+export interface UseFormOptions extends OptionalSiteKey<JamWidgetsConfig> {
   /** Form slug/identifier */
   formSlug: string;
 }
@@ -221,7 +222,7 @@ export function useForm(options: UseFormOptions): UseFormReturn {
 // useReactions
 // ============================================================================
 
-export interface UseReactionsOptions extends OptionalSiteKey<SeriphConfig> {
+export interface UseReactionsOptions extends OptionalSiteKey<JamWidgetsConfig> {
   /** Content identifier (e.g., post slug) */
   contentId: string;
   /** Auto-fetch reactions on mount (default: true) */
@@ -296,7 +297,7 @@ export function useReactions(options: UseReactionsOptions): UseReactionsReturn {
 // useComments
 // ============================================================================
 
-export interface UseCommentsOptions extends OptionalSiteKey<SeriphConfig> {
+export interface UseCommentsOptions extends OptionalSiteKey<JamWidgetsConfig> {
   /** Content identifier (e.g., post slug) */
   contentId: string;
   /** Auto-fetch comments on mount (default: true) */
@@ -370,7 +371,7 @@ export function useComments(options: UseCommentsOptions): UseCommentsReturn {
 // useWaitlist
 // ============================================================================
 
-export interface UseWaitlistOptions extends OptionalSiteKey<SeriphConfig> {}
+export interface UseWaitlistOptions extends OptionalSiteKey<JamWidgetsConfig> {}
 
 export interface UseWaitlistReturn {
   status: ControllerStatus;
@@ -427,7 +428,7 @@ export function useWaitlist(options: UseWaitlistOptions): UseWaitlistReturn {
 // useViews
 // ============================================================================
 
-export interface UseViewsOptions extends OptionalSiteKey<SeriphConfig> {
+export interface UseViewsOptions extends OptionalSiteKey<JamWidgetsConfig> {
   /** Page identifier (e.g., slug or URL path) */
   pageId: string;
   /** Auto-record view on mount (default: true) */
@@ -496,7 +497,7 @@ export function useViews(options: UseViewsOptions): UseViewsReturn {
 // useFeedback
 // ============================================================================
 
-export interface UseFeedbackOptions extends OptionalSiteKey<SeriphConfig> {}
+export interface UseFeedbackOptions extends OptionalSiteKey<JamWidgetsConfig> {}
 
 export interface UseFeedbackReturn {
   status: ControllerStatus;
@@ -552,7 +553,7 @@ export function useFeedback(options: UseFeedbackOptions): UseFeedbackReturn {
 // usePoll
 // ============================================================================
 
-export interface UsePollOptions extends OptionalSiteKey<SeriphConfig> {
+export interface UsePollOptions extends OptionalSiteKey<JamWidgetsConfig> {
   /** Poll slug */
   slug: string;
   /** Auto-fetch poll on mount (default: true) */
@@ -630,7 +631,7 @@ export function usePoll(options: UsePollOptions): UsePollReturn {
 // useAnnouncements
 // ============================================================================
 
-export interface UseAnnouncementsOptions extends OptionalSiteKey<SeriphConfig> {
+export interface UseAnnouncementsOptions extends OptionalSiteKey<JamWidgetsConfig> {
   /** Auto-fetch announcements on mount (default: true) */
   autoFetch?: boolean;
 }

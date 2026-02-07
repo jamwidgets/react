@@ -1,9 +1,9 @@
 /**
- * @seriphxyz/react - React hooks for Seriph widgets
+ * @jamwidgets/react - React hooks for Jamwidgets
  *
  * @example Subscribe form
  * ```tsx
- * import { useSubscribe } from '@seriphxyz/react';
+ * import { useSubscribe } from '@jamwidgets/react';
  *
  * function Newsletter() {
  *   const { subscribe, status, error } = useSubscribe({
@@ -30,9 +30,9 @@
  * ```
  */
 import { useState, useCallback, useEffect, useRef } from "react";
-import { SubscribeController, FormController, ReactionsController, CommentsController, WaitlistController, ViewCountsController, FeedbackController, PollController, AnnouncementsController, resolveConfig, } from "@seriphxyz/core";
+import { SubscribeController, FormController, ReactionsController, CommentsController, WaitlistController, ViewCountsController, FeedbackController, PollController, AnnouncementsController, resolveConfig, } from "@jamwidgets/core";
 // Re-export API functions and helpers from core
-export { fetchPosts, fetchPost, getConfigFromMeta, resolveConfig, DEFAULT_ENDPOINT, API_PATH, } from "@seriphxyz/core";
+export { fetchPosts, fetchPost, getConfigFromMeta, resolveConfig, DEFAULT_ENDPOINT, API_PATH, } from "@jamwidgets/core";
 /**
  * Hook for handling email subscriptions.
  *

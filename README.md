@@ -1,14 +1,14 @@
-# @seriphxyz/react
+# @jamwidgets/react
 
 > **Note:** This repo is a read-only mirror. Source lives in a private monorepo.
 > For issues/PRs, please open them here and we'll sync changes back.
 
-React hooks for [Seriph](https://seriph.xyz) widgets - comments, reactions, forms, subscriptions, and more.
+React hooks for [JamWidgets](https://jamwidgets.com) widgets - comments, reactions, forms, subscriptions, and more.
 
 ## Installation
 
 ```bash
-npm install @seriphxyz/react
+npm install @jamwidgets/react
 ```
 
 Works with React 18+ and React 19. Compatible with Next.js, Remix, Vite, and more.
@@ -20,7 +20,7 @@ Works with React 18+ and React 19. Compatible with Next.js, Remix, Vite, and mor
 Email subscription form:
 
 ```tsx
-import { useSubscribe } from "@seriphxyz/react";
+import { useSubscribe } from "@jamwidgets/react";
 
 function SubscribeForm() {
   const [email, setEmail] = useState("");
@@ -56,7 +56,7 @@ function SubscribeForm() {
 Reaction buttons (like, love, clap, etc.):
 
 ```tsx
-import { useReactions } from "@seriphxyz/react";
+import { useReactions } from "@jamwidgets/react";
 
 function LikeButton() {
   const { counts, userReactions, add, remove, status } = useReactions({
@@ -79,7 +79,7 @@ function LikeButton() {
 Threaded comments:
 
 ```tsx
-import { useComments } from "@seriphxyz/react";
+import { useComments } from "@jamwidgets/react";
 
 function Comments() {
   const { comments, post, status, error } = useComments({
@@ -109,7 +109,7 @@ function Comments() {
 Contact forms with spam protection:
 
 ```tsx
-import { useForm } from "@seriphxyz/react";
+import { useForm } from "@jamwidgets/react";
 
 function ContactForm() {
   const { submit, status, message } = useForm({
@@ -139,7 +139,7 @@ function ContactForm() {
 Waitlist signups:
 
 ```tsx
-import { useWaitlist } from "@seriphxyz/react";
+import { useWaitlist } from "@jamwidgets/react";
 
 function WaitlistForm() {
   const { join, status, message, position } = useWaitlist({
@@ -166,7 +166,7 @@ function WaitlistForm() {
 Feedback forms:
 
 ```tsx
-import { useFeedback } from "@seriphxyz/react";
+import { useFeedback } from "@jamwidgets/react";
 
 function FeedbackWidget() {
   const { submit, status, message } = useFeedback({
@@ -186,7 +186,7 @@ function FeedbackWidget() {
 Polls and voting:
 
 ```tsx
-import { usePoll } from "@seriphxyz/react";
+import { usePoll } from "@jamwidgets/react";
 
 function Poll() {
   const { poll, vote, hasVoted, status } = usePoll({
@@ -218,7 +218,7 @@ function Poll() {
 Site announcements:
 
 ```tsx
-import { useAnnouncements } from "@seriphxyz/react";
+import { useAnnouncements } from "@jamwidgets/react";
 
 function AnnouncementBanner() {
   const { announcements, dismiss, status } = useAnnouncements({
@@ -247,7 +247,7 @@ function AnnouncementBanner() {
 Page view tracking:
 
 ```tsx
-import { useViewCounts } from "@seriphxyz/react";
+import { useViewCounts } from "@jamwidgets/react";
 import { useEffect } from "react";
 
 function PageViews() {
