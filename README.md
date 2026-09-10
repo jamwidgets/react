@@ -3,7 +3,7 @@
 > **Note:** This repo is a read-only mirror. Source lives in a private monorepo.
 > For issues/PRs, please open them here and we'll sync changes back.
 
-React hooks for [JamWidgets](https://jamwidgets.com) widgets - comments, reactions, forms, subscriptions, and more.
+React hooks for [Jamwidgets](https://jamwidgets.com) widgets - comments, reactions, forms, subscriptions, and more.
 
 ## Installation
 

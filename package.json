@@ -1,6 +1,6 @@
 {
   "name": "@jamwidgets/react",
-  "version": "0.2.2",
+  "version": "0.4.0",
   "description": "React hooks for Jamwidgets (forms, comments, reactions, subscriptions)",
   "repository": {
     "type": "git",

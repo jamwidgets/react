@@ -42,7 +42,7 @@ import {
   PollController,
   AnnouncementsController,
   resolveConfig,
-  type JamWidgetsConfig,
+  type JamwidgetsConfig,
   type SubscribeState,
   type FormState,
   type ReactionsState,
@@ -61,7 +61,7 @@ import {
 
 // Re-export types from core
 export type {
-  JamWidgetsConfig,
+  JamwidgetsConfig,
   SubscribeState,
   FormState,
   ReactionsState,
@@ -95,13 +95,16 @@ export {
   resolveConfig,
   DEFAULT_ENDPOINT,
   API_PATH,
+  trackPageview,
+  initAnalytics,
+  type TrackPageviewOptions,
 } from "@jamwidgets/core";
 
 // =============================================================================
 // Config types - siteKey is optional when using meta tag fallback
 // =============================================================================
 
-type OptionalSiteKey<T extends JamWidgetsConfig> = Omit<T, "siteKey"> & {
+type OptionalSiteKey<T extends JamwidgetsConfig> = Omit<T, "siteKey"> & {
   /** Site key - optional if <meta name="jamwidgets-site-key"> is set */
   siteKey?: string;
 };
@@ -110,7 +113,7 @@ type OptionalSiteKey<T extends JamWidgetsConfig> = Omit<T, "siteKey"> & {
 // useSubscribe
 // ============================================================================
 
-export interface UseSubscribeOptions extends OptionalSiteKey<JamWidgetsConfig> {}
+export interface UseSubscribeOptions extends OptionalSiteKey<JamwidgetsConfig> {}
 
 export interface UseSubscribeReturn {
   status: ControllerStatus;
@@ -164,7 +167,7 @@ export function useSubscribe(options: UseSubscribeOptions): UseSubscribeReturn {
 // useForm
 // ============================================================================
 
-export interface UseFormOptions extends OptionalSiteKey<JamWidgetsConfig> {
+export interface UseFormOptions extends OptionalSiteKey<JamwidgetsConfig> {
   /** Form slug/identifier */
   formSlug: string;
 }
@@ -226,7 +229,7 @@ export function useForm(options: UseFormOptions): UseFormReturn {
 // useReactions
 // ============================================================================
 
-export interface UseReactionsOptions extends OptionalSiteKey<JamWidgetsConfig> {
+export interface UseReactionsOptions extends OptionalSiteKey<JamwidgetsConfig> {
   /** Content identifier (e.g., post slug) */
   contentId: string;
   /** Auto-fetch reactions on mount (default: true) */
@@ -301,7 +304,7 @@ export function useReactions(options: UseReactionsOptions): UseReactionsReturn {
 // useComments
 // ============================================================================
 
-export interface UseCommentsOptions extends OptionalSiteKey<JamWidgetsConfig> {
+export interface UseCommentsOptions extends OptionalSiteKey<JamwidgetsConfig> {
   /** Content identifier (e.g., post slug) */
   contentId: string;
   /** Auto-fetch comments on mount (default: true) */
@@ -375,7 +378,7 @@ export function useComments(options: UseCommentsOptions): UseCommentsReturn {
 // useWaitlist
 // ============================================================================
 
-export interface UseWaitlistOptions extends OptionalSiteKey<JamWidgetsConfig> {}
+export interface UseWaitlistOptions extends OptionalSiteKey<JamwidgetsConfig> {}
 
 export interface UseWaitlistReturn {
   status: ControllerStatus;
@@ -432,7 +435,7 @@ export function useWaitlist(options: UseWaitlistOptions): UseWaitlistReturn {
 // useViews
 // ============================================================================
 
-export interface UseViewsOptions extends OptionalSiteKey<JamWidgetsConfig> {
+export interface UseViewsOptions extends OptionalSiteKey<JamwidgetsConfig> {
   /** Page identifier (e.g., slug or URL path) */
   pageId: string;
   /** Auto-record view on mount (default: true) */
@@ -501,7 +504,7 @@ export function useViews(options: UseViewsOptions): UseViewsReturn {
 // useFeedback
 // ============================================================================
 
-export interface UseFeedbackOptions extends OptionalSiteKey<JamWidgetsConfig> {}
+export interface UseFeedbackOptions extends OptionalSiteKey<JamwidgetsConfig> {}
 
 export interface UseFeedbackReturn {
   status: ControllerStatus;
@@ -557,7 +560,7 @@ export function useFeedback(options: UseFeedbackOptions): UseFeedbackReturn {
 // usePoll
 // ============================================================================
 
-export interface UsePollOptions extends OptionalSiteKey<JamWidgetsConfig> {
+export interface UsePollOptions extends OptionalSiteKey<JamwidgetsConfig> {
   /** Poll slug */
   slug: string;
   /** Auto-fetch poll on mount (default: true) */
@@ -635,7 +638,7 @@ export function usePoll(options: UsePollOptions): UsePollReturn {
 // useAnnouncements
 // ============================================================================
 
-export interface UseAnnouncementsOptions extends OptionalSiteKey<JamWidgetsConfig> {
+export interface UseAnnouncementsOptions extends OptionalSiteKey<JamwidgetsConfig> {
   /** Auto-fetch announcements on mount (default: true) */
   autoFetch?: boolean;
 }
