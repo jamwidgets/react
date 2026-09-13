@@ -11,6 +11,16 @@ React hooks for [Jamwidgets](https://jamwidgets.com) widgets - comments, reactio
 npm install @jamwidgets/react
 ```
 
+## Galleries
+
+```tsx
+import { Gallery, GalleryIndex, RandomPhoto } from "@jamwidgets/react";
+
+<GalleryIndex siteKey="your-key" deepLink />
+<Gallery siteKey="your-key" slug="field-notes" tag="portraits" />
+<RandomPhoto siteKey="your-key" slug="field-notes" seed="homepage" />
+```
+
 Works with React 18+ and React 19. Compatible with Next.js, Remix, Vite, and more.
 
 ## Hooks
