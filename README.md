@@ -23,6 +23,21 @@ import { Gallery, GalleryIndex, RandomPhoto } from "@jamwidgets/react";
 
 Works with React 18+ and React 19. Compatible with Next.js, Remix, Vite, and more.
 
+## Powered-by footer
+
+The hooks render no UI, so the footer is yours to place. Free sites must render
+`<PoweredBy />` below the widgets they build with these hooks; it renders
+nothing on Team, or until the site config loads. Gallery components include it
+already.
+
+```tsx
+import { PoweredBy } from "@jamwidgets/react";
+
+<PoweredBy siteKey="your-key" />
+```
+
+`usePoweredBy({ siteKey })` returns the same flag if you render your own footer.
+
 ## Hooks
 
 ### useSubscribe
