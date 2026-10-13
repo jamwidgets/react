@@ -108,6 +108,8 @@ export {
   trackPageview,
   initAnalytics,
   type TrackPageviewOptions,
+  JamwidgetsApiError,
+  isNotFound,
 } from "@jamwidgets/core";
 
 export { Gallery, GalleryIndex, RandomPhoto } from "./Galleries.js";
@@ -294,7 +296,8 @@ export function useReactions(options: UseReactionsOptions): UseReactionsReturn {
 
     // Auto-fetch on mount (default: true)
     if (options.autoFetch !== false) {
-      controller.fetch();
+      // Failures are already in the returned state; don't also leak a rejection.
+      controller.fetch().catch(() => {});
     }
 
     return unsubscribe;
@@ -372,7 +375,8 @@ export function useComments(options: UseCommentsOptions): UseCommentsReturn {
 
     // Auto-fetch on mount (default: true)
     if (options.autoFetch !== false) {
-      controller.fetch();
+      // Failures are already in the returned state; don't also leak a rejection.
+      controller.fetch().catch(() => {});
     }
 
     return unsubscribe;
@@ -584,6 +588,7 @@ export interface UsePollOptions extends OptionalSiteKey<JamwidgetsConfig> {
 
 export interface UsePollReturn {
   poll: PollWithResults | null;
+  /** `notFound` when the poll doesn't exist or isn't published: render nothing. */
   status: ControllerStatus;
   error: Error | null;
   vote: (selectedOptions: string[]) => Promise<void>;
@@ -630,7 +635,8 @@ export function usePoll(options: UsePollOptions): UsePollReturn {
 
     // Auto-fetch on mount (default: true)
     if (options.autoFetch !== false) {
-      controller.fetch();
+      // Failures are already in the returned state; don't also leak a rejection.
+      controller.fetch().catch(() => {});
     }
 
     return unsubscribe;
@@ -703,7 +709,8 @@ export function useAnnouncements(options: UseAnnouncementsOptions): UseAnnouncem
 
     // Auto-fetch on mount (default: true)
     if (options.autoFetch !== false) {
-      controller.fetch();
+      // Failures are already in the returned state; don't also leak a rejection.
+      controller.fetch().catch(() => {});
     }
 
     return unsubscribe;
