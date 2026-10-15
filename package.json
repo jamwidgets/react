@@ -1,6 +1,6 @@
 {
   "name": "@jamwidgets/react",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "description": "React hooks for Jamwidgets (forms, comments, reactions, subscriptions)",
   "repository": {
     "type": "git",
@@ -23,9 +23,11 @@
   "files": [
     "dist"
   ],
+  "sideEffects": false,
   "scripts": {
     "build": "tsc",
-    "dev": "tsc --watch"
+    "dev": "tsc --watch",
+    "test": "vitest run"
   },
   "keywords": [
     "react",
@@ -45,7 +47,10 @@
   },
   "devDependencies": {
     "@types/react": "^18.3.31",
+    "@types/react-test-renderer": "18.3.1",
     "react": "^18.3.1",
-    "typescript": "^5.9.3"
+    "react-test-renderer": "18.3.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.11"
   }
 }

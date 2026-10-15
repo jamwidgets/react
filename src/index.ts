@@ -502,7 +502,8 @@ export function useViews(options: UseViewsOptions): UseViewsReturn {
 
     // Auto-record view on mount (default: true)
     if (options.autoRecord !== false) {
-      controller.record();
+      // Failures are already in the returned state; don't also leak a rejection.
+      controller.record().catch(() => {});
     }
 
     return unsubscribe;
@@ -668,7 +669,7 @@ export interface UseAnnouncementsReturn {
   announcements: Announcement[];
   status: ControllerStatus;
   error: Error | null;
-  dismiss: (announcementId: number) => Promise<void>;
+  dismiss: (announcementId: string) => Promise<void>;
   refresh: () => Promise<void>;
 }
 
@@ -716,7 +717,7 @@ export function useAnnouncements(options: UseAnnouncementsOptions): UseAnnouncem
     return unsubscribe;
   }, [options.siteKey, options.endpoint]);
 
-  const dismiss = useCallback(async (announcementId: number) => {
+  const dismiss = useCallback(async (announcementId: string) => {
     await controllerRef.current?.dismiss(announcementId);
   }, []);
 
