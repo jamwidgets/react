@@ -1,3 +1,6 @@
+"use client";
+
+// The client boundary makes the custom-element registration run in the browser.
 import "@jamwidgets/core/gallery-elements";
 import { createElement } from "react";
 

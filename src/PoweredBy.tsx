@@ -1,3 +1,5 @@
+"use client";
+
 import { createElement, useEffect, useState } from "react";
 import { fetchSiteConfig, POWERED_BY_URL, resolveConfig } from "@jamwidgets/core";
 

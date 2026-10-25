@@ -23,6 +23,13 @@ import { Gallery, GalleryIndex, RandomPhoto } from "@jamwidgets/react";
 
 Works with React 18+ and React 19. Compatible with Next.js, Remix, Vite, and more.
 
+### Next.js App Router
+
+`<PoweredBy />`, `<Gallery />`, `<GalleryIndex />` and `<RandomPhoto />` are
+Client Components, so a Server Component `page.tsx` can render them directly.
+`fetchPosts` and `fetchPost` run in Server Components. Call the hooks from your
+own component whose file starts with `"use client"`.
+
 ## Powered-by footer
 
 The hooks render no UI, so the footer is yours to place. Free sites must render
